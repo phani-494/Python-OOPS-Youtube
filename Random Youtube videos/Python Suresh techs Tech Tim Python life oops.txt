@@ -1,0 +1,159 @@
+A class is the blueprint from which specific objects are created.
+ 
+Data Member: A class variable or instance variable that holds data associated with a class and it's objects.
+
+
+After creating an object also, we can assign the variables to the object if we have missed in the constructor.
+
+class Car:
+ pass
+honda=Car()
+tata=Car()
+honda.modelname="Çity"  # when we give this,then at the instance this variable will be created and value will be stored.
+honda.year=2017
+
+suppose if we want to see all the values stored in the object, then we can use object_name.__dict__ so that it can print the all the values on the dictionary.
+
+
+
+class Car:
+    def __init__(self,name,price,weight,color):
+        self.name=name
+        self.price=price
+        self.weight=weight
+        self.color=color
+
+Honda=Car("Maruti",600000,3500,"red")
+print(Honda.price)
+print(Honda.__dict__)
+Honda.range=300
+print(Honda.__dict__)
+
+
+C:\Users\40014945\AppData\Local\Microsoft\WindowsApps\python3.10.exe C:/Users/40014945/PycharmProjects/iot/cam.py
+600000
+{'name': 'Maruti', 'price': 600000, 'weight': 3500, 'color': 'red'}
+{'name': 'Maruti', 'price': 600000, 'weight': 3500, 'color': 'red', 'range': 300}
+
+
+
+Inheritance:
+A class can inherit attributes and behavior methods from another class called the Superclass.
+A class which inherits from a super class is called a sub class alos called heir class or child class.
+
+
+
+class Car:
+    def __init__(self,name,price,weight,color):
+        self.name=name
+        self.price=price
+        self.weight=weight
+        self.color=color
+class Supercar(Car):
+    pass
+
+Honda=Supercar("Maruti",600000,3500,"red")
+print(Honda.__dict__)
+print(help(Honda))
+
+
+
+Help on Supercar in module __main__ object:
+
+class Supercar(Car)
+ |  Supercar(name, price, weight, color)
+ |  
+ |  Method resolution order:
+ |      Supercar
+ |      Car
+ |      builtins.object
+ |  
+ |  Methods inherited from Car:
+ |  
+ |  __init__(self, name, price, weight, color)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from Car:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+None
+
+
+
+
+class Car:
+    def __init__(self,name,price,color):
+        self.name=name
+        self.price=price
+        self.color=color
+class Supercar(Car):
+    def __init__(self,modelname,price,color):
+        #self.name = name
+        #self.price = price
+        #self.color = color
+        # instead of writing above 3 lines we can use super to call the variables in the parent class.
+        super().__init__(modelname,price,color)
+
+Honda=Supercar("Maruti",2019,600000,)
+print(Honda.__dict__)
+
+
+{'name': 'Maruti', 'price': 2019, 'color': 600000}
+
+
+Encapsulation:
+
+Binding the data and code together as a single unit.
+Securing the data by hiding the implementation details to user.
+
+
+Abstraction:
+
+Hides the implementation details and only provides the functionality to the user.
+You can achieve abstraction using Abstract classes and interfaces.
+Abstract class cannot be instanstiated.
+It can only be inherited.
+
+
+Python life oops:
+
+1. The "object" is the base class in Python.
+2. Python doesn't support multiple constructors in a class i.e, No constructor overloading.
+
+Polymorphism:
+It is a concept of Object Oriented Programming which means multiple forms or more than one form.
+
+
+
+Tech with Tim
+
+print(type("hello")) # here the "hello" is an object which is derived from the class "str"
+
+<class  "str">
+
+print(type(89))
+
+<class 'int'>
+
+def hello():
+    print("Hello world")
+print(type(hello))
+
+<class 'function'>
+
+Everything we work in python is an object of some kind of the class.
+
+These are the built-in classes. similarly we can also create our own classes and objects.
+
+Whenever you create something in python you are really creating an object which is an instance of a specific class .
+
+use . operator when u want some method to perform on a specific object.
+ex- "hello".upper()
+
+
